@@ -17,17 +17,17 @@ def test_invalid_credentials_shows_error():
     login = LoginPage(driver)
 
     try:
-        login.load(BASE_URL)
-        login.enter_username("wrongUser")
-        login.enter_password("wrongPass")
-        login.click_login()
+    login.load(BASE_URL)
+    login.enter_username("wrongUser")
+    login.enter_password("wrongPass")
+    login.click_login()
 
-        error = login.get_error_text()
-        assert error is not None and "success" in error.lower()
+    error = login.get_error_text()
+    assert error is not None and "success" in error.lower()
 
-    except AssertionError:
-        take_screenshot(driver, "invalid_login_error")
-        raise
+except Exception:
+    take_screenshot(driver, "invalid_login_error")
+    raise
 
-    finally:
-        driver.quit()
+finally:
+    driver.quit()
