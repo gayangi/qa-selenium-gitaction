@@ -23,7 +23,7 @@ def test_invalid_credentials_shows_error():
     login.click_login()
 
     error = login.get_error_text()
-    assert error is not None and "success" in error.lower()
+    assert error is not None and "invalid" in error.lower()
 
 except Exception:
     take_screenshot(driver, "invalid_login_error")
